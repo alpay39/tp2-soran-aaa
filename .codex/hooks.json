@@ -1,0 +1,40 @@
+{
+  "description": "Contrôles du TP2 : post-écriture informatif, Stop bloquant, protection livraison.",
+  "hooks": {
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$(git rev-parse --show-toplevel)/scripts/codex-hooks.mjs\"",
+            "timeout": 180
+          }
+        ],
+        "matcher": "Bash|exec_command"
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$(git rev-parse --show-toplevel)/scripts/codex-hooks.mjs\"",
+            "timeout": 180
+          }
+        ],
+        "matcher": "apply_patch|Edit|Write|Bash|exec_command"
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$(git rev-parse --show-toplevel)/scripts/codex-hooks.mjs\"",
+            "timeout": 180
+          }
+        ]
+      }
+    ]
+  }
+}

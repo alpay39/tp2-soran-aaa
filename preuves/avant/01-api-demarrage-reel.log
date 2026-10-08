@@ -1,0 +1,5 @@
+
+> salles-api@0.4.2 start
+> tsx src/server.ts
+
+salles-api sur http://localhost:3000

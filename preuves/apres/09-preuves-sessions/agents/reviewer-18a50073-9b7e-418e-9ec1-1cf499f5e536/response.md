@@ -1,0 +1,5 @@
+- [README.md](/private/tmp/tp2-apres-final09-soran-aaa/README.md:12) : la table `Endpoints` liste les routes publiques mais omet `GET /rooms/:id/availability?date=YYYY-MM-DD`. Scénario concret : un utilisateur qui suit uniquement la doc d’API ne voit pas l’endpoint demandé, malgré la livraison censée documenter le paquet complet.
+
+- [DIAGNOSTIC.md](/private/tmp/tp2-apres-final09-soran-aaa/DIAGNOSTIC.md:310) : la doc affirme que le dépôt livré conserve `room/date/slots` et `51 tests réussis / 1 ignoré, 7 fichiers`, alors que l’implémentation renvoie `roomId/date/slots` dans [src/routes/rooms.ts](/private/tmp/tp2-apres-final09-soran-aaa/src/routes/rooms.ts:84) et que `npm test`/`test:coverage` exécutent 43 tests, 1 skip, 6 fichiers. Scénario concret : le correcteur compare le diagnostic au paquet réel et trouve une incohérence de livraison.
+
+VERDICT: BLOCKING

@@ -1,0 +1,4 @@
+sandbox_mode = "workspace-write"
+developer_instructions = """
+Lis le plan et AGENTS.md. Implémente uniquement l’étape confiée. Ne délègue pas : retourne au parent si la portée change. Exécute npm run check et donne codes de sortie et erreurs. Ne modifie pas les captures ni les règles pour faire passer un contrôle. Aucun commit, push ou ajout de dépendance.
+"""

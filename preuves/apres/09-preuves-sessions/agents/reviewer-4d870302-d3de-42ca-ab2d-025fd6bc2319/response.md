@@ -1,0 +1,5 @@
+- `.husky/pre-commit:2` source `.husky/_/husky.sh`, mais `.husky/_/` est absent. Scénario concret : lancer `sh .husky/pre-commit` échoue immédiatement avec `No such file or directory`, donc le hook ne lance jamais lint/typecheck/tests.
+
+- `.gitignore:1` n’exclut pas le `node_modules` livré sous forme de symlink. `git status` expose encore `?? node_modules`, et `readlink node_modules` pointe vers `/Users/altan/Desktop/tp-ia/tp2-soran-aaa/node_modules`. Scénario concret : le dossier rendu contient une dépendance à un chemin absolu local extérieur au rendu, incohérente pour une copie évaluée ailleurs.
+
+VERDICT: BLOCKING

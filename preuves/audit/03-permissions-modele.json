@@ -1,0 +1,82 @@
+{
+  "method": "evaluation isolee des regles YAML simples suivant last matching rule wins ; pas execution OpenCode",
+  "agents": [
+    {
+      "agent": "architect",
+      "mode": "primary",
+      "permissions": {
+        "read": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "edit": "allow",
+        "task": "allow"
+      }
+    },
+    {
+      "agent": "dev",
+      "mode": "subagent",
+      "permissions": {
+        "read": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "edit": "allow",
+        "task": "allow"
+      }
+    },
+    {
+      "agent": "explorer",
+      "mode": "subagent",
+      "permissions": {
+        "read": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "edit": "allow",
+        "task": "deny"
+      }
+    },
+    {
+      "agent": "finder",
+      "mode": "subagent",
+      "permissions": {
+        "read": "deny",
+        "glob": "deny",
+        "grep": "deny",
+        "edit": "deny",
+        "task": "deny"
+      }
+    },
+    {
+      "agent": "planner",
+      "mode": "primary",
+      "permissions": {
+        "read": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "edit": "deny",
+        "task": "deny"
+      }
+    },
+    {
+      "agent": "reviewer",
+      "mode": "subagent",
+      "permissions": {
+        "read": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "edit": "allow",
+        "task": "deny"
+      }
+    },
+    {
+      "agent": "tester",
+      "mode": "subagent",
+      "permissions": {
+        "read": "allow",
+        "glob": "allow",
+        "grep": "allow",
+        "edit": "deny",
+        "task": "deny"
+      }
+    }
+  ]
+}

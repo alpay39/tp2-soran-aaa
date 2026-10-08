@@ -1,0 +1,6 @@
+{
+  "attempt": "06-apres-session",
+  "observation": "Agent dev délégué mais agent_role null ; spawn_agent sans agent_type et fork_context true dans la trace brute.",
+  "fix": ".codex/config.toml enregistre agents.<role>.config_file ; AGENTS.md demande agent_type explicite et contexte indépendant.",
+  "evidence_session": "01a117d7-5e3b-7940-a250-c3d578a352e1"
+}

@@ -1,0 +1,123 @@
+{
+  "markdown_files_checked": 32,
+  "local_links_found_valid": 126,
+  "missing": [],
+  "historical_absolute_links_preserved": [
+    {
+      "file": "preuves/apres/06-apres-reponse.md",
+      "original_absolute_reference": "/private/tmp/tp2-apres-soran-aaa/src/routes/rooms.ts",
+      "exists": true
+    },
+    {
+      "file": "preuves/apres/06-apres-reponse.md",
+      "original_absolute_reference": "/private/tmp/tp2-apres-soran-aaa/test/rooms.spec.ts",
+      "exists": true
+    },
+    {
+      "file": "preuves/apres/07-apres-reponse.md",
+      "original_absolute_reference": "/private/tmp/tp2-apres-final-soran-aaa/src/routes/rooms.ts",
+      "exists": true
+    },
+    {
+      "file": "preuves/apres/07-apres-reponse.md",
+      "original_absolute_reference": "/private/tmp/tp2-apres-final-soran-aaa/src/lib/availability.ts",
+      "exists": true
+    },
+    {
+      "file": "preuves/apres/07-apres-reponse.md",
+      "original_absolute_reference": "/private/tmp/tp2-apres-final-soran-aaa/test/rooms.spec.ts",
+      "exists": true
+    },
+    {
+      "file": "preuves/avant/02-avant-reponse.md",
+      "original_absolute_reference": "/Users/altan/Desktop/tp-ia/tp2-soran-aaa/src/routes/rooms.ts",
+      "exists": true
+    },
+    {
+      "file": "preuves/avant/02-avant-reponse.md",
+      "original_absolute_reference": "/Users/altan/Desktop/tp-ia/tp2-soran-aaa/src/lib/availability.ts",
+      "exists": true
+    },
+    {
+      "file": "preuves/avant/02-avant-reponse.md",
+      "original_absolute_reference": "/Users/altan/Desktop/tp-ia/tp2-soran-aaa/test/rooms.spec.ts",
+      "exists": true
+    },
+    {
+      "file": "preuves/avant/02-avant-reponse.md",
+      "original_absolute_reference": "/Users/altan/Desktop/tp-ia/tp2-soran-aaa/test/availability.spec.ts",
+      "exists": true
+    },
+    {
+      "file": "preuves/avant/02-avant-reponse.md",
+      "original_absolute_reference": "/Users/altan/Desktop/tp-ia/tp2-soran-aaa/README.md",
+      "exists": true
+    },
+    {
+      "file": "preuves/apres/06-lanceur-finder-source/response.md",
+      "original_absolute_reference": "/Users/altan/Desktop/tp-ia/tp2-soran-aaa/src/app.ts",
+      "exists": true
+    },
+    {
+      "file": "preuves/apres/09-preuves-sessions/agents/reviewer-64448c07-a69d-408d-bad6-d693ae4e0420/response.md",
+      "original_absolute_reference": "/private/tmp/tp2-apres-final09-soran-aaa/README.md",
+      "exists": true
+    },
+    {
+      "file": "preuves/apres/09-preuves-sessions/agents/reviewer-18a50073-9b7e-418e-9ec1-1cf499f5e536/response.md",
+      "original_absolute_reference": "/private/tmp/tp2-apres-final09-soran-aaa/README.md",
+      "exists": true
+    },
+    {
+      "file": "preuves/apres/09-preuves-sessions/agents/reviewer-18a50073-9b7e-418e-9ec1-1cf499f5e536/response.md",
+      "original_absolute_reference": "/private/tmp/tp2-apres-final09-soran-aaa/DIAGNOSTIC.md",
+      "exists": true
+    },
+    {
+      "file": "preuves/apres/09-preuves-sessions/agents/reviewer-18a50073-9b7e-418e-9ec1-1cf499f5e536/response.md",
+      "original_absolute_reference": "/private/tmp/tp2-apres-final09-soran-aaa/src/routes/rooms.ts",
+      "exists": true
+    },
+    {
+      "file": "preuves/apres/09-preuves-sessions/agents/dev-e63a8c72-a42d-4fb7-9b8b-9e8282ff8f4f/response.md",
+      "original_absolute_reference": "/private/tmp/tp2-apres-final09-soran-aaa/src/routes/rooms.ts",
+      "exists": true
+    },
+    {
+      "file": "preuves/apres/09-preuves-sessions/agents/dev-e63a8c72-a42d-4fb7-9b8b-9e8282ff8f4f/response.md",
+      "original_absolute_reference": "/private/tmp/tp2-apres-final09-soran-aaa/test/rooms.spec.ts",
+      "exists": true
+    },
+    {
+      "file": "preuves/apres/08-preuves-sessions/agents/reviewer-110547d2-ccd3-4fe9-b2e9-95ed824b48f3/response.md",
+      "original_absolute_reference": "/private/tmp/tp2-apres-livre-soran-aaa/src/routes/rooms.ts",
+      "exists": true
+    },
+    {
+      "file": "preuves/apres/08-preuves-sessions/agents/reviewer-110547d2-ccd3-4fe9-b2e9-95ed824b48f3/response.md",
+      "original_absolute_reference": "/private/tmp/tp2-apres-livre-soran-aaa/src/lib/availability.ts",
+      "exists": true
+    },
+    {
+      "file": "preuves/apres/08-preuves-sessions/agents/reviewer-110547d2-ccd3-4fe9-b2e9-95ed824b48f3/response.md",
+      "original_absolute_reference": "/private/tmp/tp2-apres-livre-soran-aaa/test/rooms.spec.ts",
+      "exists": true
+    },
+    {
+      "file": "preuves/apres/08-preuves-sessions/agents/dev-21776b98-56a0-4bc2-8ab6-3664e2375681/response.md",
+      "original_absolute_reference": "/private/tmp/tp2-apres-livre-soran-aaa/src/routes/rooms.ts",
+      "exists": true
+    },
+    {
+      "file": "preuves/apres/08-preuves-sessions/agents/dev-21776b98-56a0-4bc2-8ab6-3664e2375681/response.md",
+      "original_absolute_reference": "/private/tmp/tp2-apres-livre-soran-aaa/src/lib/availability.ts",
+      "exists": true
+    },
+    {
+      "file": "preuves/apres/08-preuves-sessions/agents/dev-21776b98-56a0-4bc2-8ab6-3664e2375681/response.md",
+      "original_absolute_reference": "/private/tmp/tp2-apres-livre-soran-aaa/test/rooms.spec.ts",
+      "exists": true
+    }
+  ],
+  "historical_txt_index": "index-captures-original.txt conservé brut, chemins référencés dans organisation-rendu.json"
+}

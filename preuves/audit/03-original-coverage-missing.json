@@ -1,0 +1,14 @@
+{
+  "label": "coverage-missing",
+  "command": [
+    "npm",
+    "run",
+    "test:unit",
+    "--",
+    "--coverage"
+  ],
+  "cwd": "/private/tmp/tp2-original",
+  "exit_code": 1,
+  "stdout": "\n> salles-api@0.4.2 test:unit\n> vitest run --coverage\n\n",
+  "stderr": " MISSING DEPENDENCY  Cannot find dependency '@vitest/coverage-v8'\n\n"
+}

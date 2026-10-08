@@ -1,0 +1,199 @@
+{
+  "method": "usage turn.completed des sessions CLI et sandbox_policy du dernier turn_context réel ; les inputs agrégés répètent le contexte et ne sont pas une taille unique de contexte",
+  "before_usage": [
+    {
+      "input_tokens": 1038476,
+      "cached_input_tokens": 930944,
+      "cache_write_input_tokens": 0,
+      "output_tokens": 11523,
+      "reasoning_output_tokens": 3758
+    }
+  ],
+  "after_sessions": [
+    {
+      "phase": "09",
+      "invocation": {
+        "role": "dev",
+        "sandbox": "workspace-write",
+        "model": "gpt-5.5",
+        "profile": ".codex/agents/dev.toml",
+        "started": "2026-10-07T20:15:36.691Z",
+        "ended": "2026-10-07T20:19:16.931Z",
+        "exitCode": 0,
+        "freshSession": true,
+        "parentResumed": false
+      },
+      "thread_id": "01a11801-dd8c-7e51-a399-da690a7b372c",
+      "actual_sandbox": {
+        "type": "workspace-write",
+        "network_access": false,
+        "exclude_tmpdir_env_var": false,
+        "exclude_slash_tmp": false
+      },
+      "usage": {
+        "input_tokens": 560169,
+        "cached_input_tokens": 508928,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 7258,
+        "reasoning_output_tokens": 1848
+      },
+      "evidence_directory": "captures/09-preuves-sessions/agents/dev-e63a8c72-a42d-4fb7-9b8b-9e8282ff8f4f"
+    },
+    {
+      "phase": "12",
+      "invocation": {
+        "role": "reviewer",
+        "sandbox": "read-only",
+        "model": "gpt-5.5",
+        "profile": ".codex/agents/reviewer.toml",
+        "started": "2026-10-07T20:35:11.843Z",
+        "ended": "2026-10-07T20:38:03.794Z",
+        "exitCode": 0,
+        "freshSession": true,
+        "parentResumed": false
+      },
+      "thread_id": "01a11813-cb76-7101-be69-a74ecfc9a58f",
+      "actual_sandbox": {
+        "type": "read-only"
+      },
+      "usage": {
+        "input_tokens": 592991,
+        "cached_input_tokens": 536192,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 5286,
+        "reasoning_output_tokens": 2098
+      },
+      "evidence_directory": "captures/09-preuves-sessions/agents/reviewer-18a50073-9b7e-418e-9ec1-1cf499f5e536"
+    },
+    {
+      "phase": "10",
+      "invocation": {
+        "role": "reviewer",
+        "sandbox": "read-only",
+        "model": "gpt-5.5",
+        "profile": ".codex/agents/reviewer.toml",
+        "started": "2026-10-07T20:26:50.653Z",
+        "ended": "2026-10-07T20:29:18.251Z",
+        "exitCode": 0,
+        "freshSession": true,
+        "parentResumed": false
+      },
+      "thread_id": "01a1180c-2523-72d1-b9ba-d485f3d5d7d3",
+      "actual_sandbox": {
+        "type": "read-only"
+      },
+      "usage": {
+        "input_tokens": 358995,
+        "cached_input_tokens": 320256,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 4513,
+        "reasoning_output_tokens": 1942
+      },
+      "evidence_directory": "captures/09-preuves-sessions/agents/reviewer-26d99ae7-18e4-49d3-9575-1d4ecf75db5b"
+    },
+    {
+      "phase": "13",
+      "invocation": {
+        "role": "reviewer",
+        "sandbox": "read-only",
+        "model": "gpt-5.5",
+        "profile": ".codex/agents/reviewer.toml",
+        "started": "2026-10-07T20:40:17.817Z",
+        "ended": "2026-10-07T20:42:26.806Z",
+        "exitCode": 0,
+        "freshSession": true,
+        "parentResumed": false
+      },
+      "thread_id": "01a11818-76f2-7920-865f-d11e195faa94",
+      "actual_sandbox": {
+        "type": "read-only"
+      },
+      "usage": {
+        "input_tokens": 373085,
+        "cached_input_tokens": 343808,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 4454,
+        "reasoning_output_tokens": 1776
+      },
+      "evidence_directory": "captures/09-preuves-sessions/agents/reviewer-35c06e52-e60b-45a1-9c55-6599d25e7730"
+    },
+    {
+      "phase": "11",
+      "invocation": {
+        "role": "reviewer",
+        "sandbox": "read-only",
+        "model": "gpt-5.5",
+        "profile": ".codex/agents/reviewer.toml",
+        "started": "2026-10-07T20:30:23.523Z",
+        "ended": "2026-10-07T20:32:46.735Z",
+        "exitCode": 0,
+        "freshSession": true,
+        "parentResumed": false
+      },
+      "thread_id": "01a1180f-64ae-7fa2-aa1c-db8f7b484f10",
+      "actual_sandbox": {
+        "type": "read-only"
+      },
+      "usage": {
+        "input_tokens": 469733,
+        "cached_input_tokens": 425472,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 5661,
+        "reasoning_output_tokens": 2626
+      },
+      "evidence_directory": "captures/09-preuves-sessions/agents/reviewer-4d870302-d3de-42ca-ab2d-025fd6bc2319"
+    },
+    {
+      "phase": "09",
+      "invocation": {
+        "role": "reviewer",
+        "sandbox": "read-only",
+        "model": "gpt-5.5",
+        "profile": ".codex/agents/reviewer.toml",
+        "started": "2026-10-07T20:21:50.091Z",
+        "ended": "2026-10-07T20:23:56.294Z",
+        "exitCode": 0,
+        "freshSession": true,
+        "parentResumed": false
+      },
+      "thread_id": "01a11807-8d59-77b2-b19b-118386e385b4",
+      "actual_sandbox": {
+        "type": "read-only"
+      },
+      "usage": {
+        "input_tokens": 336351,
+        "cached_input_tokens": 297728,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3761,
+        "reasoning_output_tokens": 1407
+      },
+      "evidence_directory": "captures/09-preuves-sessions/agents/reviewer-64448c07-a69d-408d-bad6-d693ae4e0420"
+    },
+    {
+      "phase": "09",
+      "invocation": {
+        "role": "tester",
+        "sandbox": "read-only",
+        "model": "gpt-5.5",
+        "profile": ".codex/agents/tester.toml",
+        "started": "2026-10-07T20:19:17.053Z",
+        "ended": "2026-10-07T20:21:49.970Z",
+        "exitCode": 0,
+        "freshSession": true,
+        "parentResumed": false
+      },
+      "thread_id": "01a11805-3615-7353-9063-5c03cab3e22f",
+      "actual_sandbox": {
+        "type": "read-only"
+      },
+      "usage": {
+        "input_tokens": 350367,
+        "cached_input_tokens": 316288,
+        "cache_write_input_tokens": 0,
+        "output_tokens": 3641,
+        "reasoning_output_tokens": 805
+      },
+      "evidence_directory": "captures/09-preuves-sessions/agents/tester-8849bfdc-8ece-442b-ba8c-0f591639b604"
+    }
+  ]
+}

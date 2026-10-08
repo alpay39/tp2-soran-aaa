@@ -1,0 +1,6 @@
+{
+  "command": "tsc -p tsconfig.audit.json (strict true)",
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": ""
+}

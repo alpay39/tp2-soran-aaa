@@ -1,0 +1,83 @@
+{
+  "method": "V8 Profiler.takePreciseCoverage avant destruction des workers ; fonctions nommées du code transpilé. Pas un pourcentage Istanbul de lignes/branches TS.",
+  "filesLoaded": 2,
+  "filesTotal": 8,
+  "functionsHit": 1,
+  "functionsTotal": 4,
+  "rows": [
+    {
+      "file": "src/app.ts",
+      "loaded": false,
+      "namedFunctions": 0,
+      "hitFunctions": 0,
+      "functions": []
+    },
+    {
+      "file": "src/lib/overlap.ts",
+      "loaded": true,
+      "namedFunctions": 1,
+      "hitFunctions": 1,
+      "functions": [
+        {
+          "name": "overlaps",
+          "hit": true
+        }
+      ]
+    },
+    {
+      "file": "src/lib/price.ts",
+      "loaded": false,
+      "namedFunctions": 0,
+      "hitFunctions": 0,
+      "functions": []
+    },
+    {
+      "file": "src/lib/validate.ts",
+      "loaded": false,
+      "namedFunctions": 0,
+      "hitFunctions": 0,
+      "functions": []
+    },
+    {
+      "file": "src/routes/bookings.ts",
+      "loaded": false,
+      "namedFunctions": 0,
+      "hitFunctions": 0,
+      "functions": []
+    },
+    {
+      "file": "src/routes/rooms.ts",
+      "loaded": false,
+      "namedFunctions": 0,
+      "hitFunctions": 0,
+      "functions": []
+    },
+    {
+      "file": "src/server.ts",
+      "loaded": false,
+      "namedFunctions": 0,
+      "hitFunctions": 0,
+      "functions": []
+    },
+    {
+      "file": "src/store.ts",
+      "loaded": true,
+      "namedFunctions": 3,
+      "hitFunctions": 0,
+      "functions": [
+        {
+          "name": "nextBookingId",
+          "hit": false
+        },
+        {
+          "name": "findRoom",
+          "hit": false
+        },
+        {
+          "name": "bookingsForRoom",
+          "hit": false
+        }
+      ]
+    }
+  ]
+}

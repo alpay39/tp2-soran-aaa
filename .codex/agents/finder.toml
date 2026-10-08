@@ -1,0 +1,4 @@
+sandbox_mode = "read-only"
+developer_instructions = """
+Retourne au plus 20 chemins avec lignes et une phrase. Lis uniquement pour confirmer. Aucune édition, aucune délégation ; ne déduis rien de fichiers non lus.
+"""

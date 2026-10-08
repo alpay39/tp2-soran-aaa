@@ -1,0 +1,61 @@
+
+> salles-api@0.4.2 verify
+> npm run check && npm run test:harness && npm run test:mutation
+
+
+> salles-api@0.4.2 check
+> bash scripts/checks.sh --strict
+
+--- typecheck
+--- lint
+--- build
+--- test
+
+ RUN  v2.1.9 /private/tmp/tp2-apres-final09-soran-aaa
+
+ ✓ test/price.spec.ts (4 tests) 8ms
+ ✓ test/validate.spec.ts (3 tests) 11ms
+ ✓ test/store.spec.ts (4 tests) 5ms
+ ✓ test/overlap.spec.ts (6 tests | 1 skipped) 13ms
+ ✓ test/rooms.spec.ts (9 tests) 156ms
+ ✓ test/bookings.spec.ts (18 tests) 308ms
+
+ Test Files  6 passed (6)
+      Tests  43 passed | 1 skipped (44)
+   Start at  22:42:33
+   Duration  1.54s (transform 162ms, setup 0ms, collect 821ms, tests 501ms, environment 2ms, prepare 1.53s)
+
+--- OK : tous les controles sont verts
+
+> salles-api@0.4.2 test:harness
+> node --test test/harness/*.test.mjs
+
+✔ le lanceur refuse un rôle qui pourrait sortir du dossier des profils (96.444684ms)
+✔ pipeline : un double CLI en échec arrête la chaîne avant tester et reviewer (726.311446ms)
+✔ pipeline : un CLI vert sans verdict QA ne déclenche pas la revue (813.156859ms)
+✔ post-écriture informatif : contrôle exécuté et erreur visible (1.631812ms)
+✔ Stop bloque un faux résultat vert annoncé par un agent (1.249152ms)
+✔ Stop accepte les contrôles effectivement verts (0.194085ms)
+✔ PreToolUse bloque le push sans toucher au réseau (1.255421ms)
+✔ les lectures seules ne relancent pas les checks (0.457519ms)
+✔ plugin OpenCode : patch et bash passent par le filet, sans boucle (0.550001ms)
+ℹ tests 9
+ℹ suites 0
+ℹ pass 9
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 1760.680053
+
+> salles-api@0.4.2 test:mutation
+> node scripts/mutation.mjs
+
+overlap-faux: TUE
+prix-base-zero: TUE
+prix-sans-majoration: TUE
+store-premiere-salle: TUE
+store-reservations-vides: TUE
+validation-zero-accepte: TUE
+
+CODE SORTIE : 0

@@ -1,0 +1,51 @@
+ M .github/workflows/ci.yml
+ M .gitignore
+ M .husky/pre-commit
+ M .opencode/agent/architect.md
+ M .opencode/agent/dev.md
+ M .opencode/agent/explorer.md
+ M .opencode/agent/finder.md
+ M .opencode/agent/planner.md
+ M .opencode/agent/reviewer.md
+ M .opencode/command/ship.md
+ M .opencode/plugin/checks.js
+ M AGENTS.md
+ M README.md
+ M eslint.config.js
+ M opencode.json
+ M package.json
+ M scripts/checks.sh
+ M src/app.ts
+ M src/lib/overlap.ts
+ M src/lib/price.ts
+ M src/lib/validate.ts
+ M src/routes/bookings.ts
+ M src/routes/rooms.ts
+ D test/bookings.test.ts
+ M test/overlap.spec.ts
+ D test/price.test.ts
+ M test/store.spec.ts
+ M tsconfig.json
+ M vitest.config.ts
+?? .agents/
+?? .codex/
+?? .githooks/
+?? DIAGNOSTIC.md
+?? REPRISE_TP2.md
+?? captures/
+?? scripts/agent.mjs
+?? scripts/chain.mjs
+?? scripts/codex-hooks.mjs
+?? scripts/coverage.mjs
+?? scripts/install-hooks.mjs
+?? scripts/mutation.mjs
+?? src/lib/availability.ts
+?? test/availability.spec.ts
+?? test/bookings.spec.ts
+?? test/coverage.ts
+?? test/harness/
+?? test/http.ts
+?? test/price.spec.ts
+?? test/rooms.spec.ts
+?? test/validate.spec.ts
+?? tsconfig.build.json

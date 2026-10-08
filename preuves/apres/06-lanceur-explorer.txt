@@ -1,0 +1,10 @@
+Session Codex indépendante · rôle=explorer · sandbox=read-only
+Preuves : /Users/altan/Desktop/tp-ia/tp2-soran-aaa/.codex/scratch/agents/explorer-b1b7355c-1277-4955-b79c-81417aff9343
+Faits :
+1. En production, `src/server.ts:1` importe `createApp`, puis `src/server.ts:5` lance l’app Express avec `listen`.
+2. `createApp` construit Express, active le JSON, puis déclare `GET /health` qui répond directement `{ ok: true }` en JSON : `src/app.ts:6`, `src/app.ts:8`, `src/app.ts:9`.
+3. Le test appelle une vraie requête HTTP locale via `call`, puis vérifie `200` et `{ ok: true }` : `test/http.ts:10`, `test/http.ts:16`, `test/rooms.spec.ts:45`.
+
+Hypothèses : aucune.
+
+Inconnues : aucune dans les fichiers lus.

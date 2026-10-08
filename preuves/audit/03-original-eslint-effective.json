@@ -1,0 +1,12 @@
+{
+  "label": "eslint-effective",
+  "command": [
+    "./node_modules/.bin/eslint",
+    "--print-config",
+    "src/lib/price.ts"
+  ],
+  "cwd": "/private/tmp/tp2-original",
+  "exit_code": 0,
+  "stdout": "{\n  \"linterOptions\": {\n    \"reportUnusedDisableDirectives\": 1\n  },\n  \"rules\": {},\n  \"plugins\": [\n    \"@\"\n  ],\n  \"language\": \"@/js\",\n  \"languageOptions\": {\n    \"sourceType\": \"module\",\n    \"ecmaVersion\": 2026,\n    \"parser\": \"typescript-eslint/parser@8.70.0\",\n    \"parserOptions\": {\n      \"ecmaVersion\": \"latest\",\n      \"sourceType\": \"module\"\n    }\n  }\n}\n",
+  "stderr": ""
+}

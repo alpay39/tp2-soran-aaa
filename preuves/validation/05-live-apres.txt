@@ -1,0 +1,89 @@
+UTC : 2026-10-07T19:28:27.658513+00:00
+Dossier : /Users/altan/Desktop/tp-ia/tp2-soran-aaa
+$ npm run verify
+
+
+> salles-api@0.4.2 verify
+> npm run check && npm run test:harness && npm run test:mutation
+
+
+> salles-api@0.4.2 check
+> bash scripts/checks.sh --strict
+
+--- typecheck
+--- lint
+--- build
+--- test
+
+ RUN  v2.1.9 /Users/altan/Desktop/tp-ia/tp2-soran-aaa
+
+ ✓ test/overlap.spec.ts (6 tests | 1 skipped) 5ms
+ ✓ test/store.spec.ts (4 tests) 8ms
+ ✓ test/price.spec.ts (4 tests) 6ms
+ ✓ test/availability.spec.ts (5 tests) 7ms
+ ✓ test/validate.spec.ts (3 tests) 7ms
+ ✓ test/rooms.spec.ts (12 tests) 242ms
+ ✓ test/bookings.spec.ts (18 tests) 317ms
+
+ Test Files  7 passed (7)
+      Tests  51 passed | 1 skipped (52)
+   Start at  21:28:34
+   Duration  1.47s (transform 191ms, setup 0ms, collect 912ms, tests 591ms, environment 2ms, prepare 1.51s)
+
+--- OK : tous les controles sont verts
+
+> salles-api@0.4.2 test:harness
+> node --test test/harness/*.test.mjs
+
+TAP version 13
+# Subtest: post-écriture informatif : contrôle exécuté et erreur visible
+ok 1 - post-écriture informatif : contrôle exécuté et erreur visible
+  ---
+  duration_ms: 2.200067
+  ...
+# Subtest: Stop bloque un faux résultat vert annoncé par un agent
+ok 2 - Stop bloque un faux résultat vert annoncé par un agent
+  ---
+  duration_ms: 0.270319
+  ...
+# Subtest: Stop accepte les contrôles effectivement verts
+ok 3 - Stop accepte les contrôles effectivement verts
+  ---
+  duration_ms: 1.060043
+  ...
+# Subtest: PreToolUse bloque le push sans toucher au réseau
+ok 4 - PreToolUse bloque le push sans toucher au réseau
+  ---
+  duration_ms: 0.960307
+  ...
+# Subtest: les lectures seules ne relancent pas les checks
+ok 5 - les lectures seules ne relancent pas les checks
+  ---
+  duration_ms: 0.391986
+  ...
+# Subtest: plugin OpenCode : patch et bash passent par le filet, sans boucle
+ok 6 - plugin OpenCode : patch et bash passent par le filet, sans boucle
+  ---
+  duration_ms: 0.586287
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 160.036834
+
+> salles-api@0.4.2 test:mutation
+> node scripts/mutation.mjs
+
+overlap-faux: TUE
+prix-base-zero: TUE
+prix-sans-majoration: TUE
+store-premiere-salle: TUE
+store-reservations-vides: TUE
+validation-zero-accepte: TUE
+
+CODE SORTIE : 0

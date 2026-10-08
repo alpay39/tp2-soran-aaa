@@ -1,0 +1,96 @@
+
+=== dev : session Codex neuve ===
+Session Codex indépendante · rôle=dev · sandbox=workspace-write
+Preuves : /private/tmp/tp2-apres-final09-soran-aaa/.codex/scratch/agents/dev-e63a8c72-a42d-4fb7-9b8b-9e8282ff8f4f
+**Résumé :**
+- Endpoint ajouté : `GET /rooms/:id/availability?date=YYYY-MM-DD`.
+- Il renvoie les créneaux libres UTC de la journée, avec validation stricte de `date`, 404 si salle inconnue, fusion des réservations contiguës/chevauchantes, et bornage des réservations qui traversent minuit.
+- Je n’ai pas lu `captures/`, pas de commit, pas de push.
+- Plan local : `.opencode/plans` ne contient que `.gitkeep`.
+
+**Fichiers modifiés :**
+- [src/routes/rooms.ts](/private/tmp/tp2-apres-final09-soran-aaa/src/routes/rooms.ts:1)
+- [test/rooms.spec.ts](/private/tmp/tp2-apres-final09-soran-aaa/test/rooms.spec.ts:1)
+
+**Contrôles :**
+- `npm run check` sandbox : code `1`
+  - Erreurs : tests HTTP avec `Server is not running`, puis `EPERM` sur `node_modules/.vite/vitest/results.json`.
+- `npm run check` hors sandbox : code `0`
+  - `typecheck`, `lint`, `build`, `test` verts.
+  - Tests : `43 passed | 1 skipped`.
+- `npm run verify` hors sandbox : code `0`
+  - `check` vert.
+  - Harness : `9 passed`.
+  - Mutations : 6/6 tuées.
+- `git diff --check` : code `0`.
+
+**À vérifier :**
+- Le repo était déjà très sale avant mon intervention. `npm run verify` a aussi généré `dist/` et `coverage/` en non suivis.
+- Test ignoré conservé : fixture legacy INFRA-198.
+
+**Prochaine étape conseillée :**
+- Message de commit proposé si tu veux ensuite committer : `feat: add room availability endpoint`
+
+
+=== tester : session Codex neuve ===
+Session Codex indépendante · rôle=tester · sandbox=read-only
+Preuves : /private/tmp/tp2-apres-final09-soran-aaa/.codex/scratch/agents/tester-8849bfdc-8ece-442b-ba8c-0f591639b604
+Résumé :
+- Vérification faite sans modifier de fichier, sans lire `captures/`, sans commit ni push.
+- Les tests existants passent hors sandbox.
+- Le parcours HTTP réel sur loopback passe pour `GET /rooms/salle-a/availability?date=2026-10-05`.
+
+Attendu :
+- HTTP `200 OK`.
+- Réponse avec `roomId: "salle-a"`, `date: "2026-10-05"`.
+- Créneaux libres :
+  - `2026-10-05T00:00:00.000Z` → `2026-10-05T09:00:00.000Z`
+  - `2026-10-05T11:00:00.000Z` → `2026-10-06T00:00:00.000Z`
+
+Observé :
+```json
+{
+  "roomId": "salle-a",
+  "date": "2026-10-05",
+  "slots": [
+    {
+      "startsAt": "2026-10-05T00:00:00.000Z",
+      "endsAt": "2026-10-05T09:00:00.000Z"
+    },
+    {
+      "startsAt": "2026-10-05T11:00:00.000Z",
+      "endsAt": "2026-10-06T00:00:00.000Z"
+    }
+  ]
+}
+```
+
+Commandes et codes de sortie :
+- `git status --short` → `0`, avec avertissements sandbox macOS, dépôt déjà très modifié.
+- `git diff --check` → `0`, avec avertissements sandbox macOS.
+- `npm test` en sandbox read-only → `1`, bloqué par `EPERM` sur fichier temporaire Vitest.
+- `npm test` hors sandbox → `0` : 6 fichiers passés, 43 tests passés, 1 ignoré.
+- `npm run verify` en sandbox read-only → `1`, bloqué par écritures `dist/` et fichier temporaire Vitest.
+- `npm run verify` hors sandbox → `0`.
+- `npm start` sur port 3000 → `1`, port déjà utilisé (`EADDRINUSE`).
+- `PORT=3100 npm start` → serveur lancé, arrêté ensuite manuellement avec `Ctrl-C` donc code `130`.
+- `curl -i http://127.0.0.1:3100/health` → `0`, HTTP 200.
+- `curl -i 'http://127.0.0.1:3100/rooms/salle-a/availability?date=2026-10-05'` → `0`, HTTP 200.
+
+Limites :
+- Couverture non exécutée directement : `npm run verify` ne lance pas `npm run test:coverage`.
+- Mutation exécutée via `verify` : mutants listés tous `TUE`.
+- Test ignoré connu : legacy INFRA-198 dans `test/overlap.spec.ts`.
+
+VERDICT: PASS
+
+
+=== reviewer : session Codex neuve ===
+Session Codex indépendante · rôle=reviewer · sandbox=read-only
+Preuves : /private/tmp/tp2-apres-final09-soran-aaa/.codex/scratch/agents/reviewer-64448c07-a69d-408d-bad6-d693ae4e0420
+- [README.md:90](/private/tmp/tp2-apres-final09-soran-aaa/README.md:90) référence `DIAGNOSTIC.md`, mais ce fichier est absent du dossier livré. Scénario concret : un évaluateur suit le README pour consulter “l’ordre des étapes, les preuves, les métriques et les limites de l’adaptation” et tombe sur un fichier inexistant, donc le paquet livré est incohérent.
+
+VERDICT: BLOCKING
+
+Revue non concluante ou bloquante ; nouvelle étape dev requise
+PREUVES CHAINE : /private/tmp/tp2-apres-final09-soran-aaa/.codex/scratch/chains/b015b2df-07e0-46f2-8639-052ac0f70d14

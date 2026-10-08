@@ -1,0 +1,83 @@
+
+> salles-api@0.4.2 verify
+> npm run check && npm run test:harness && npm run test:mutation
+
+
+> salles-api@0.4.2 check
+> bash scripts/checks.sh --strict
+
+--- typecheck
+--- lint
+--- build
+--- test
+
+ RUN  v2.1.9 /Users/altan/Desktop/tp-ia/tp2-soran-aaa
+
+ ✓ test/validate.spec.ts (3 tests) 9ms
+ ✓ test/store.spec.ts (4 tests) 8ms
+ ✓ test/availability.spec.ts (5 tests) 26ms
+ ✓ test/price.spec.ts (4 tests) 5ms
+ ✓ test/overlap.spec.ts (6 tests | 1 skipped) 5ms
+ ✓ test/rooms.spec.ts (12 tests) 215ms
+ ✓ test/bookings.spec.ts (18 tests) 279ms
+
+ Test Files  7 passed (7)
+      Tests  51 passed | 1 skipped (52)
+   Start at  21:24:43
+   Duration  1.43s (transform 196ms, setup 0ms, collect 1.03s, tests 547ms, environment 2ms, prepare 1.48s)
+
+--- OK : tous les controles sont verts
+
+> salles-api@0.4.2 test:harness
+> node --test test/harness/*.test.mjs
+
+TAP version 13
+# Subtest: post-écriture informatif : contrôle exécuté et erreur visible
+ok 1 - post-écriture informatif : contrôle exécuté et erreur visible
+  ---
+  duration_ms: 1.865135
+  ...
+# Subtest: Stop bloque un faux résultat vert annoncé par un agent
+ok 2 - Stop bloque un faux résultat vert annoncé par un agent
+  ---
+  duration_ms: 0.230622
+  ...
+# Subtest: Stop accepte les contrôles effectivement verts
+ok 3 - Stop accepte les contrôles effectivement verts
+  ---
+  duration_ms: 0.907684
+  ...
+# Subtest: PreToolUse bloque le push sans toucher au réseau
+ok 4 - PreToolUse bloque le push sans toucher au réseau
+  ---
+  duration_ms: 0.782989
+  ...
+# Subtest: les lectures seules ne relancent pas les checks
+ok 5 - les lectures seules ne relancent pas les checks
+  ---
+  duration_ms: 0.321745
+  ...
+# Subtest: plugin OpenCode : patch et bash passent par le filet, sans boucle
+ok 6 - plugin OpenCode : patch et bash passent par le filet, sans boucle
+  ---
+  duration_ms: 0.487806
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 134.611234
+
+> salles-api@0.4.2 test:mutation
+> node scripts/mutation.mjs
+
+overlap-faux: TUE
+prix-base-zero: TUE
+prix-sans-majoration: TUE
+store-premiere-salle: TUE
+store-reservations-vides: TUE
+validation-zero-accepte: TUE

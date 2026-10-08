@@ -1,0 +1,6 @@
+{
+  "command": "tsc strict apres retrait temporaire @ts-nocheck dans copie initiale",
+  "exit_code": 2,
+  "stdout": "src/lib/price.ts(18,5): error TS2322: Type 'string' is not assignable to type 'number'.\n",
+  "stderr": ""
+}

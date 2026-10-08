@@ -1,0 +1,176 @@
+UTC : 2026-10-07T19:30:28.466065+00:00
+Dossier : /Users/altan/Desktop/tp-ia/tp2-soran-aaa
+$ npm run test:coverage
+
+
+> salles-api@0.4.2 test:coverage
+> node scripts/coverage.mjs
+
+
+ RUN  v2.1.9 /Users/altan/Desktop/tp-ia/tp2-soran-aaa
+
+ ✓ test/availability.spec.ts (5 tests) 61ms
+ ✓ test/store.spec.ts (4 tests) 29ms
+ ✓ test/validate.spec.ts (3 tests) 66ms
+ ✓ test/overlap.spec.ts (6 tests | 1 skipped) 83ms
+ ✓ test/price.spec.ts (4 tests) 71ms
+ ✓ test/rooms.spec.ts (12 tests) 332ms
+ ✓ test/bookings.spec.ts (18 tests) 423ms
+
+ Test Files  7 passed (7)
+      Tests  51 passed | 1 skipped (52)
+   Start at  21:30:30
+   Duration  2.09s (transform 247ms, setup 319ms, collect 1.06s, tests 1.06s, environment 2ms, prepare 2.60s)
+
+{
+  "method": "V8 Profiler.takePreciseCoverage avant destruction des workers ; fonctions nommées du code transpilé. Pas un pourcentage Istanbul de lignes/branches TS.",
+  "filesLoaded": 8,
+  "filesTotal": 9,
+  "functionsHit": 18,
+  "functionsTotal": 18,
+  "rows": [
+    {
+      "file": "src/app.ts",
+      "loaded": true,
+      "namedFunctions": 2,
+      "hitFunctions": 2,
+      "functions": [
+        {
+          "name": "createApp",
+          "hit": true
+        },
+        {
+          "name": "errors",
+          "hit": true
+        }
+      ]
+    },
+    {
+      "file": "src/lib/availability.ts",
+      "loaded": true,
+      "namedFunctions": 5,
+      "hitFunctions": 5,
+      "functions": [
+        {
+          "name": "toIso",
+          "hit": true
+        },
+        {
+          "name": "nextUtcDay",
+          "hit": true
+        },
+        {
+          "name": "dayBounds",
+          "hit": true
+        },
+        {
+          "name": "isIsoDay",
+          "hit": true
+        },
+        {
+          "name": "availabilityForDay",
+          "hit": true
+        }
+      ]
+    },
+    {
+      "file": "src/lib/overlap.ts",
+      "loaded": true,
+      "namedFunctions": 1,
+      "hitFunctions": 1,
+      "functions": [
+        {
+          "name": "overlaps",
+          "hit": true
+        }
+      ]
+    },
+    {
+      "file": "src/lib/price.ts",
+      "loaded": true,
+      "namedFunctions": 3,
+      "hitFunctions": 3,
+      "functions": [
+        {
+          "name": "isWeekend",
+          "hit": true
+        },
+        {
+          "name": "hoursBetween",
+          "hit": true
+        },
+        {
+          "name": "priceFor",
+          "hit": true
+        }
+      ]
+    },
+    {
+      "file": "src/lib/validate.ts",
+      "loaded": true,
+      "namedFunctions": 4,
+      "hitFunctions": 4,
+      "functions": [
+        {
+          "name": "<instance_members_initializer>",
+          "hit": true
+        },
+        {
+          "name": "requireString",
+          "hit": true
+        },
+        {
+          "name": "requireDate",
+          "hit": true
+        },
+        {
+          "name": "requirePositiveInt",
+          "hit": true
+        }
+      ]
+    },
+    {
+      "file": "src/routes/bookings.ts",
+      "loaded": true,
+      "namedFunctions": 0,
+      "hitFunctions": 0,
+      "functions": []
+    },
+    {
+      "file": "src/routes/rooms.ts",
+      "loaded": true,
+      "namedFunctions": 0,
+      "hitFunctions": 0,
+      "functions": []
+    },
+    {
+      "file": "src/server.ts",
+      "loaded": false,
+      "namedFunctions": 0,
+      "hitFunctions": 0,
+      "functions": []
+    },
+    {
+      "file": "src/store.ts",
+      "loaded": true,
+      "namedFunctions": 3,
+      "hitFunctions": 3,
+      "functions": [
+        {
+          "name": "nextBookingId",
+          "hit": true
+        },
+        {
+          "name": "findRoom",
+          "hit": true
+        },
+        {
+          "name": "bookingsForRoom",
+          "hit": true
+        }
+      ]
+    }
+  ]
+}
+
+CODE SORTIE : 0

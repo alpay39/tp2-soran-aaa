@@ -1,0 +1,30 @@
+Session Codex indépendante · rôle=dev · sandbox=workspace-write
+Preuves : /private/tmp/tp2-apres-livre-soran-aaa/.codex/scratch/agents/dev-21776b98-56a0-4bc2-8ab6-3664e2375681
+Résumé :
+- Ajout de `GET /rooms/:id/availability?date=YYYY-MM-DD`.
+- La réponse renvoie `{ roomId, date, slots }`, avec des créneaux libres UTC sur la journée demandée.
+- Les réservations sont recadrées à la journée et fusionnées si elles se touchent ou se chevauchent.
+
+Fichiers modifiés :
+- [src/routes/rooms.ts](/private/tmp/tp2-apres-livre-soran-aaa/src/routes/rooms.ts:12)
+- [src/lib/availability.ts](/private/tmp/tp2-apres-livre-soran-aaa/src/lib/availability.ts:1)
+- [test/rooms.spec.ts](/private/tmp/tp2-apres-livre-soran-aaa/test/rooms.spec.ts:1)
+
+Comment tester :
+- `npm run check` dans le sandbox : code `1`
+  - erreurs : tests HTTP en échec avec `Server is not running`, puis `EPERM` sur `node_modules/.vite/vitest/results.json`.
+- `npm run check` avec permission escaladée : code `0`
+  - `typecheck`, `lint`, `build`, `test` OK.
+  - `39 passed`, `1 skipped`.
+- `npm run verify` avec permission escaladée : code `0`
+  - `check` OK.
+  - `test:harness` OK : `8 passed`.
+  - `test:mutation` OK : mutants ciblés tous `TUE`.
+- `git diff --check` : code `0`.
+
+À vérifier :
+- Le dépôt était déjà très modifié avant mon intervention, avec beaucoup de fichiers modifiés/supprimés/non suivis. Je n’ai pas touché à `captures/`.
+- Couverture non relancée séparément ; la validation mutation exécutée est celle de `npm run verify`.
+
+Prochaine étape conseillée :
+- Message de commit proposé, si tu décides de commit plus tard : `feat: add room availability endpoint`.

@@ -1,0 +1,40 @@
+{
+  "local_links_missing": [],
+  "comparison_placeholder_remaining": false,
+  "diff_check_exit": 0,
+  "lockfile_store_env_unchanged": true,
+  "head": "ab57521d04c1ed026be1440bc4e4d58c61788a2a",
+  "screenshots_count": 15,
+  "evidence_files_hashed": 196,
+  "final_result": {
+    "task": "Ajoute un endpoint GET /rooms/:id/availability?date=YYYY-MM-DD qui renvoie les créneaux libres d'une salle sur la journée demandée, avec ses tests.",
+    "fresh_implementation_phase": "09",
+    "tester_verdict": "PASS",
+    "final_reviewer_phase": "13",
+    "final_reviewer_verdict": "NOTHING FOUND",
+    "final_validation_exit": 0,
+    "tests_application_copy": {
+      "passed": 43,
+      "skipped": 1,
+      "files": 6
+    },
+    "tests_application_main": {
+      "passed": 51,
+      "skipped": 1,
+      "files": 7
+    },
+    "harness_passed": 9,
+    "mutants_killed": 6,
+    "application_files_unchanged_since_dev_tester": 19,
+    "earlier_blocking_verdicts_preserved": [
+      "08",
+      "09",
+      "10",
+      "11",
+      "12"
+    ],
+    "commit_created": false,
+    "push_performed": false
+  },
+  "own_servers_stopped_after_capture": true
+}

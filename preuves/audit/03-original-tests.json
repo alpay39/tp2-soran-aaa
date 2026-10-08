@@ -1,0 +1,12 @@
+{
+  "label": "tests",
+  "command": [
+    "npm",
+    "run",
+    "test:unit"
+  ],
+  "cwd": "/private/tmp/tp2-original",
+  "exit_code": 0,
+  "stdout": "\n> salles-api@0.4.2 test:unit\n> vitest run\n\n\n RUN  v2.1.9 /private/tmp/tp2-original\n\n ✓ test/overlap.spec.ts (6 tests | 4 skipped) 5ms\n ✓ test/store.spec.ts (3 tests) 6ms\n\n Test Files  2 passed (2)\n      Tests  5 passed | 4 skipped (9)\n   Start at  20:48:31\n   Duration  570ms (transform 94ms, setup 0ms, collect 106ms, tests 11ms, environment 1ms, prepare 230ms)\n\n",
+  "stderr": ""
+}

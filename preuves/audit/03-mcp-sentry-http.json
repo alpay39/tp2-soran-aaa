@@ -1,0 +1,13 @@
+{
+  "command": [
+    "curl",
+    "--max-time",
+    "10",
+    "-sS",
+    "-i",
+    "https://mcp.sentry.dev/mcp"
+  ],
+  "exit_code": 0,
+  "stdout": "HTTP/2 401 \ndate: Wed, 07 Oct 2026 18:50:52 GMT\ncontent-length: 0\ncache-control: no-store\nwww-authenticate: Bearer realm=\"OAuth\", resource_metadata=\"https://mcp.sentry.dev/.well-known/oauth-protected-resource/mcp\"\npragma: no-cache\nreport-to: {\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=XHy4Y374IH4wo6xgYSY9ioynOAozfcwabPFJSBsyFdkqrn1nhr2MZ2U%2BEEW2DqsrvqpWzJXwgUHnrqB%2FBwVu6iTT%2FSDfVUZEVl0pxfiK7HGLMO9kaSmacul9goRe7qqHtCxlVD%2FMxj2SRA7S2Q%3D%3D\"}]}\nnel: {\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}\nserver: cloudflare\ncf-ray: a46f180fb981d09f-CDG\nalt-svc: h3=\":443\"; ma=86400\n\n",
+  "stderr": ""
+}

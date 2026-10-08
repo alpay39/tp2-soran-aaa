@@ -1,0 +1,11 @@
+{
+  "role": "tester",
+  "sandbox": "read-only",
+  "model": "gpt-5.5",
+  "profile": ".codex/agents/tester.toml",
+  "started": "2026-10-07T20:19:17.053Z",
+  "ended": "2026-10-07T20:21:49.970Z",
+  "exitCode": 0,
+  "freshSession": true,
+  "parentResumed": false
+}

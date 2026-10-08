@@ -1,0 +1,16 @@
+node_modules
+coverage/
+*.log
+.opencode/scratch/
+dist/
+.codex/scratch/
+.DS_Store
+
+# Conserver les logs historiques du rendu.
+!preuves/**/*.log
+
+# Variables locales : conserver les secrets hors du rendu Git.
+.env
+.env.*
+!.env.example
+!.env.sample

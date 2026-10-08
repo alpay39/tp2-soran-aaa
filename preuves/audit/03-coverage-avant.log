@@ -1,0 +1,94 @@
+
+ RUN  v2.1.9 /private/tmp/tp2-original
+
+ ✓ test/overlap.spec.ts (6 tests | 4 skipped) 13ms
+ ✓ test/store.spec.ts (3 tests) 15ms
+
+ Test Files  2 passed (2)
+      Tests  5 passed | 4 skipped (9)
+   Start at  21:24:36
+   Duration  699ms (transform 95ms, setup 88ms, collect 58ms, tests 28ms, environment 1ms, prepare 238ms)
+
+{
+  "method": "V8 Profiler.takePreciseCoverage avant destruction des workers ; fonctions nommées du code transpilé. Pas un pourcentage Istanbul de lignes/branches TS.",
+  "filesLoaded": 2,
+  "filesTotal": 8,
+  "functionsHit": 1,
+  "functionsTotal": 4,
+  "rows": [
+    {
+      "file": "src/app.ts",
+      "loaded": false,
+      "namedFunctions": 0,
+      "hitFunctions": 0,
+      "functions": []
+    },
+    {
+      "file": "src/lib/overlap.ts",
+      "loaded": true,
+      "namedFunctions": 1,
+      "hitFunctions": 1,
+      "functions": [
+        {
+          "name": "overlaps",
+          "hit": true
+        }
+      ]
+    },
+    {
+      "file": "src/lib/price.ts",
+      "loaded": false,
+      "namedFunctions": 0,
+      "hitFunctions": 0,
+      "functions": []
+    },
+    {
+      "file": "src/lib/validate.ts",
+      "loaded": false,
+      "namedFunctions": 0,
+      "hitFunctions": 0,
+      "functions": []
+    },
+    {
+      "file": "src/routes/bookings.ts",
+      "loaded": false,
+      "namedFunctions": 0,
+      "hitFunctions": 0,
+      "functions": []
+    },
+    {
+      "file": "src/routes/rooms.ts",
+      "loaded": false,
+      "namedFunctions": 0,
+      "hitFunctions": 0,
+      "functions": []
+    },
+    {
+      "file": "src/server.ts",
+      "loaded": false,
+      "namedFunctions": 0,
+      "hitFunctions": 0,
+      "functions": []
+    },
+    {
+      "file": "src/store.ts",
+      "loaded": true,
+      "namedFunctions": 3,
+      "hitFunctions": 0,
+      "functions": [
+        {
+          "name": "nextBookingId",
+          "hit": false
+        },
+        {
+          "name": "findRoom",
+          "hit": false
+        },
+        {
+          "name": "bookingsForRoom",
+          "hit": false
+        }
+      ]
+    }
+  ]
+}

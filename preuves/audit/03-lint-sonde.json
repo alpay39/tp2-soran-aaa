@@ -1,0 +1,7 @@
+{
+  "command": "eslint src/lib/lint-probe.ts",
+  "source": "export function probe(value: any) { const unused = 1; return value.missing; }\n",
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": ""
+}

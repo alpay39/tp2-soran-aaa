@@ -1,0 +1,95 @@
+
+=== dev : session Codex neuve ===
+Session Codex indépendante · rôle=dev · sandbox=workspace-write
+Preuves : /private/tmp/tp2-apres-livre-soran-aaa/.codex/scratch/agents/dev-21776b98-56a0-4bc2-8ab6-3664e2375681
+Résumé :
+- Ajout de `GET /rooms/:id/availability?date=YYYY-MM-DD`.
+- La réponse renvoie `{ roomId, date, slots }`, avec des créneaux libres UTC sur la journée demandée.
+- Les réservations sont recadrées à la journée et fusionnées si elles se touchent ou se chevauchent.
+
+Fichiers modifiés :
+- [src/routes/rooms.ts](/private/tmp/tp2-apres-livre-soran-aaa/src/routes/rooms.ts:12)
+- [src/lib/availability.ts](/private/tmp/tp2-apres-livre-soran-aaa/src/lib/availability.ts:1)
+- [test/rooms.spec.ts](/private/tmp/tp2-apres-livre-soran-aaa/test/rooms.spec.ts:1)
+
+Comment tester :
+- `npm run check` dans le sandbox : code `1`
+  - erreurs : tests HTTP en échec avec `Server is not running`, puis `EPERM` sur `node_modules/.vite/vitest/results.json`.
+- `npm run check` avec permission escaladée : code `0`
+  - `typecheck`, `lint`, `build`, `test` OK.
+  - `39 passed`, `1 skipped`.
+- `npm run verify` avec permission escaladée : code `0`
+  - `check` OK.
+  - `test:harness` OK : `8 passed`.
+  - `test:mutation` OK : mutants ciblés tous `TUE`.
+- `git diff --check` : code `0`.
+
+À vérifier :
+- Le dépôt était déjà très modifié avant mon intervention, avec beaucoup de fichiers modifiés/supprimés/non suivis. Je n’ai pas touché à `captures/`.
+- Couverture non relancée séparément ; la validation mutation exécutée est celle de `npm run verify`.
+
+Prochaine étape conseillée :
+- Message de commit proposé, si tu décides de commit plus tard : `feat: add room availability endpoint`.
+
+
+=== tester : session Codex neuve ===
+Session Codex indépendante · rôle=tester · sandbox=read-only
+Preuves : /private/tmp/tp2-apres-livre-soran-aaa/.codex/scratch/agents/tester-60284308-5d62-44c4-8ac6-0bcd99e77245
+Résumé :
+- Vérification faite sur le code présent, sans correction, sans commit/push, sans lecture de `captures/`.
+- Résultat global : la tâche est validée par les tests existants et par un parcours HTTP réel sur loopback.
+- Limite importante : le workspace est très sale (`git status` liste beaucoup de fichiers modifiés/supprimés/non suivis). Je n’ai pas déterminé l’origine de ces changements.
+
+Commandes et codes de sortie :
+- `npm test`
+  - 1er essai sandbox : code `1`, bloqué par `EPERM` sur un fichier temporaire Vitest.
+  - relance autorisée hors sandbox : code `0`.
+  - Observé : `6 passed`, `39 passed`, `1 skipped`.
+- `npm run verify`
+  - code `0`.
+  - Inclut : `typecheck`, `lint`, `build`, `test`, `test:harness`, `test:mutation`.
+  - Observé : tous verts.
+- `git diff --check`
+  - code `0`, aucun problème affiché.
+- `git status --short`
+  - code `0`, nombreux changements déjà présents.
+- `npm start`
+  - sur port `3000` : code `1`, attendu impossible car port déjà utilisé (`EADDRINUSE`).
+  - relancé avec `PORT=3107 npm start` : serveur démarré, arrêté ensuite par `Ctrl+C` avec code `130`.
+- `curl` sandbox vers loopback
+  - code `7`, connexion impossible depuis le sandbox.
+  - relancé hors sandbox : OK.
+
+Parcours HTTP réel observé :
+- Attendu `GET /rooms/salle-a/availability?date=2026-10-05` : `200`, créneaux libres `00:00-09:00` et `11:00-00:00`.
+  - Observé : `200 OK`, JSON conforme.
+- Attendu `GET /rooms/salle-b/availability?date=2026-10-05` : journée entière libre.
+  - Observé : `200 OK`, JSON conforme.
+- Attendu date invalide `2026-02-30` : `400`.
+  - Observé : `400 Bad Request`, `{"error":"date invalide : date"}`.
+- Attendu date absente : `400`.
+  - Observé : `400 Bad Request`, `{"error":"date requise au format YYYY-MM-DD"}`.
+- Attendu salle inconnue : `404`.
+  - Observé : `404 Not Found`, `{"error":"salle inconnue"}`.
+
+Mutation / couverture :
+- Mutation ciblée : tous les mutants listés sont `TUE`.
+- Couverture : non exécutée séparément dans cette vérification ; `npm run verify` ne lance pas `npm run test:coverage`.
+- Test ignoré : `1 skipped`, lié à la fixture legacy explicitement ignorée.
+
+Fichiers modifiés :
+- Aucun fichier modifié par moi.
+
+Message de commit possible, si tu décides plus tard de committer :
+- `feat: add room availability endpoint`
+
+
+=== reviewer : session Codex neuve ===
+Session Codex indépendante · rôle=reviewer · sandbox=read-only
+Preuves : /private/tmp/tp2-apres-livre-soran-aaa/.codex/scratch/agents/reviewer-110547d2-ccd3-4fe9-b2e9-95ed824b48f3
+- [src/routes/rooms.ts](/private/tmp/tp2-apres-livre-soran-aaa/src/routes/rooms.ts:3) importe `../lib/availability.js`, mais [src/lib/availability.ts](/private/tmp/tp2-apres-livre-soran-aaa/src/lib/availability.ts:1) est non suivi (`??`). Scénario concret : si le diff/commit actuel est appliqué sur un clone propre, le fichier importé n’existe pas, donc le build/typecheck échoue avant même que `GET /rooms/:id/availability` puisse fonctionner. Les tests dédiés [test/rooms.spec.ts](/private/tmp/tp2-apres-livre-soran-aaa/test/rooms.spec.ts:1) sont aussi non suivis, donc ils ne couvriraient pas la livraison.
+
+VERDICT: BLOCKING
+
+Revue bloquante ; retour à une nouvelle étape dev requis
+PREUVES CHAINE : /private/tmp/tp2-apres-livre-soran-aaa/.codex/scratch/chains/99796075-fc76-4fea-9466-49bdf99588cd

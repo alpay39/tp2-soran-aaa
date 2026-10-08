@@ -1,0 +1,6 @@
+{
+  "command": "PATH=<double npm echoue 7> bash scripts/checks.sh",
+  "exit_code": 0,
+  "stdout": "--- typecheck\nECHEC volontaire pour sonde du hook\n--- lint\nECHEC volontaire pour sonde du hook\n--- tests\nECHEC volontaire pour sonde du hook\n--- au moins un check est rouge (voir plus haut)\n",
+  "stderr": ""
+}

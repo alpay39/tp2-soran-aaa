@@ -1,0 +1,13 @@
+{
+  "snapshot": "/private/tmp/tp2-apres-soran-aaa",
+  "purpose": "Harness et corrections métier réparés ; endpoint initial retiré uniquement de cette copie pour refaire une vraie implémentation depuis une session neuve.",
+  "removed_only_in_copy": [
+    "src/lib/availability.ts",
+    "test/rooms.spec.ts",
+    "test/availability.spec.ts"
+  ],
+  "restored_original_in_copy": "src/routes/rooms.ts",
+  "prompt": "Ajoute un endpoint GET /rooms/:id/availability?date=YYYY-MM-DD qui renvoie les créneaux libres d'une salle sur la journée demandée, avec ses tests.",
+  "model": "gpt-5.5",
+  "resume": false
+}

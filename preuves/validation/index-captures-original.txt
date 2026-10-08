@@ -1,0 +1,48 @@
+# Captures et preuves — TP2 SORAN / AAA
+
+Les PNG sont des captures réellement prises dans Chrome DevTools. Les pages de contrôle reçoivent directement stdout/stderr des processus exécutés, avec commande, dossier, date UTC et code de sortie. Les JSON/JSONL, sources et patches complètent ces captures ; ils ne les remplacent pas. Les heures des sorties peuvent être en UTC ou heure locale selon l’outil.
+
+## Parcours principal du rendu
+
+| Étape | Capture | Preuve complémentaire |
+|---|---|---|
+| API AVANT | [health](01-avant-health.png), [endpoint absent](01-avant-endpoint-original.png) | référence dans [00-reference-commit.txt](00-reference-commit.txt) |
+| Expérience 1, sans aide | [session AVANT en cours](02-avant-en-cours.png) | [consigne exacte](02-consigne-exacte.txt), [trace](02-avant-session.jsonl), [réponse](02-avant-reponse.md), [sources produites](02-avant-source/) |
+| Suite réellement découverte avant | [suite originale](05-avant-suite.png) | [résultat original](03-original-tests.json) |
+| Bugs cachés par les tests exclus | [prix et réservation adjacente](05-avant-tests-exclus-bugs.png) | [tous les tests forcés pour audit](03-original-tous-les-tests.json) |
+| Commandes, types, permissions, MCP | [démonstrations](05-audit-demonstrations.png) | fichiers `03-*.json` |
+| Dernière validation du dépôt livré | [verify final](09-verification-finale.png) | [sortie réelle complète](09-final-verify.txt) |
+| Couverture finale | [V8](09-couverture-finale.png) | [sortie complète](09-final-coverage.txt) |
+| API compilée réparée | [disponibilité](09-api-disponibilite.png) | réponse HTTP réelle sur le port local 3109 |
+
+Le lien initial `02-avant-resultat.png` n’avait pas de fichier correspondant. Il a été retiré du diagnostic. La réponse initiale est conservée dans sa trace et dans le fichier Markdown ; aucune capture ancienne manquante n’est inventée.
+
+## Essais d’orchestration conservés
+
+- `06-apres-*` : première relance, subagents génériques. `06-profils-*.json` et `06-limite-roles.json` montrent la limite du sélecteur natif. Ne pas les confondre avec des rôles réellement isolés.
+- `06-lanceur-finder-source/` et `06-lanceur-finder-metadonnees.json` : vraie session finder et sandbox read-only vérifié. Les sorties explorer/planner figurent aussi sous le préfixe 06.
+- `07-apres-*` : agent ayant implémenté directement sans délégation. Essai conservé et non présenté comme succès d’orchestration.
+- [08-apres-chaine.txt](08-apres-chaine.txt) : chaîne arrêtée sur `VERDICT: BLOCKING`, car le reviewer évaluait un commit des seuls fichiers suivis. [08-preuves-sessions/](08-preuves-sessions/) contient les trois sessions et le résultat interne de la chaîne. Son échec ne disparaît pas après correction du critère de revue.
+- [09-apres-protocole.json](09-apres-protocole.json) : copie neuve et tâche identique ; [09-apres-chaine.txt](09-apres-chaine.txt) : sortie du pipeline final. La revue 09 a bloqué sur DIAGNOSTIC.md absent de la copie. [10-revue-apres.txt](10-revue-apres.txt) a ensuite démasqué le workflow CI manquant. Les omissions sont conservées dans [11-completion-paquet.json](11-completion-paquet.json) ; le code de l’endpoint n’a pas changé. [11-revue-finale.txt](11-revue-finale.txt) relève le hook historique et le lien local des dépendances. [12-corrections-paquet.json](12-corrections-paquet.json) décrit les réparations sans changement du code de disponibilité ; [12-revue-finale.txt](12-revue-finale.txt) conserve la dernière revue. [12-hook-legacy-validation.txt](12-hook-legacy-validation.txt) prouve le relais réel du hook vers verify, sans commit. Les sources sont dans [09-code-produit/](09-code-produit/), les modes et tokens dans [09-metadonnees-sessions.json](09-metadonnees-sessions.json).
+
+## Portée des mesures
+
+Les captures 05 sont historiques : la capture des hooks affichait six contrats. Le verify final en affiche neuf. La couverture V8 compte les modules chargés et les fonctions nommées du code transpilé ; ce n’est pas un taux de lignes/branches TypeScript. Les six mutations sont un échantillon déclaré, pas un score exhaustif.
+
+`03-npm-audit.json` conserve les vulnérabilités de l’outillage non mis à jour sans autorisation. Les preuves MCP distinguent une réponse HTTP, une variable absente et une initialisation MCP réellement réalisée. Aucun secret n’est affiché.
+
+Le serveur reproductible [outils/preuves.py](outils/preuves.py) affiche les contrôles et la trace locale. Le lancement du mode verify ou coverage exécute réellement le contrôle ; le mode session lit uniquement la trace. Le serveur est local et n’envoie aucune instruction aux agents.
+
+Le dossier de preuves est livré avec le dépôt complet. `git diff` seul n’inclut pas les nouveaux fichiers non suivis ; les copies de sources et les inventaires assurent leur conservation. Aucun commit ni push n’a été effectué.
+
+## Clôture finale
+
+[13-revue-et-validation-apres.png](13-revue-et-validation-apres.png) montre la revue NOTHING FOUND suivie du verify réel, code 0. [13-resultat-final.json](13-resultat-final.json) rassemble les résultats et distingue les 43 tests de la copie des 51 du dépôt principal. Les sources/test de la copie sont restés identiques depuis dev/tester ; seuls le paquet, la compatibilité du hook et les documents ont été complétés.
+
+[13-hook-legacy-verification.png](13-hook-legacy-verification.png) montre le passage réel du relais historique vers verify (51 réussis, 1 ignoré, 9 contrats, 6 mutants).
+
+[13-avant-relecture-resultat.png](13-avant-relecture-resultat.png) est une relecture du résultat AVANT prise à la finalisation. Le bandeau le signale : elle complète la capture initiale en cours, mais n’est pas présentée comme une capture ancienne retrouvée. Aucun résultat initial n’a été modifié.
+
+Les documents propres à la copie sont conservés dans [13-paquet-comparaison/](13-paquet-comparaison/). La revue finale est [13-revue-finale.txt](13-revue-finale.txt) et la sortie après revue [13-validation-apres.txt](13-validation-apres.txt). Les essais bloqués 08 à 12 sont conservés pour montrer ce que le filet a réellement détecté.
+
+Le [contrôle du rendu](13-controle-rendu.json) confirme les liens, les résultats et le HEAD inchangé. L’[état Git final](13-etat-final-git.txt) liste les fichiers modifiés/non suivis. Le [manifeste SHA-256](13-manifeste-sha256.json) permet de contrôler les preuves conservées. Les serveurs de preuve propres à cette reprise ont été fermés après sauvegarde.

@@ -1,0 +1,12 @@
+{
+  "label": "types",
+  "command": [
+    "npm",
+    "run",
+    "typecheck"
+  ],
+  "cwd": "/private/tmp/tp2-original",
+  "exit_code": 0,
+  "stdout": "\n> salles-api@0.4.2 typecheck\n> tsc --noEmit\n\n",
+  "stderr": ""
+}

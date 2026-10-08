@@ -1,0 +1,4 @@
+Session Codex indépendante · rôle=finder · sandbox=read-only
+Preuves : /Users/altan/Desktop/tp-ia/tp2-soran-aaa/.codex/scratch/agents/finder-ada9bc02-80d7-4ff7-aa0c-f7860e3a5cff
+Handler `/health` trouvé dans [src/app.ts](/Users/altan/Desktop/tp-ia/tp2-soran-aaa/src/app.ts:9).  
+Ligne 9 : `app.get("/health", ...)` renvoie `{ ok: true }`.

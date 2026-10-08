@@ -1,0 +1,3 @@
+- [src/routes/rooms.ts](/private/tmp/tp2-apres-livre-soran-aaa/src/routes/rooms.ts:3) importe `../lib/availability.js`, mais [src/lib/availability.ts](/private/tmp/tp2-apres-livre-soran-aaa/src/lib/availability.ts:1) est non suivi (`??`). Scénario concret : si le diff/commit actuel est appliqué sur un clone propre, le fichier importé n’existe pas, donc le build/typecheck échoue avant même que `GET /rooms/:id/availability` puisse fonctionner. Les tests dédiés [test/rooms.spec.ts](/private/tmp/tp2-apres-livre-soran-aaa/test/rooms.spec.ts:1) sont aussi non suivis, donc ils ne couvriraient pas la livraison.
+
+VERDICT: BLOCKING

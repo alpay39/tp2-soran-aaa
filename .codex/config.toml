@@ -1,0 +1,29 @@
+model = "gpt-5.5"
+# Modèle disponible du compte, utilisé pour les expériences comparables.
+# Profils explicitement enregistrés ; pas de service distant ni de secret requis.
+[agents]
+max_concurrent_threads_per_session = 4
+
+[agents.dev]
+description = "Implémente une étape bornée et ses tests, puis exécute les contrôles."
+config_file = "agents/dev.toml"
+
+[agents.explorer]
+description = "Explique le chemin réel d’un sous-système, avec preuves."
+config_file = "agents/explorer.toml"
+
+[agents.finder]
+description = "Localise les fichiers et symboles sans expliquer tout le système."
+config_file = "agents/finder.toml"
+
+[agents.planner]
+description = "Prépare un plan court avec critères vérifiables, sans implémenter."
+config_file = "agents/planner.toml"
+
+[agents.reviewer]
+description = "Vérifie indépendamment le diff et les critères, sans corriger."
+config_file = "agents/reviewer.toml"
+
+[agents.tester]
+description = "Teste le logiciel réel et rapporte des reproductions ; ne corrige rien."
+config_file = "agents/tester.toml"

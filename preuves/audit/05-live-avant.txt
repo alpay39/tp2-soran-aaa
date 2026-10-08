@@ -1,0 +1,21 @@
+UTC : 2026-10-07T19:26:16.795463+00:00
+Dossier : /private/tmp/tp2-original
+$ npm run test:unit
+
+
+> salles-api@0.4.2 test:unit
+> vitest run
+
+
+ RUN  v2.1.9 /private/tmp/tp2-original
+
+ ✓ test/overlap.spec.ts (6 tests | 4 skipped) 4ms
+ ✓ test/store.spec.ts (3 tests) 6ms
+
+ Test Files  2 passed (2)
+      Tests  5 passed | 4 skipped (9)
+   Start at  21:26:17
+   Duration  914ms (transform 108ms, setup 0ms, collect 95ms, tests 11ms, environment 1ms, prepare 388ms)
+
+
+CODE SORTIE : 0

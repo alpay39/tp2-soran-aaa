@@ -1,0 +1,98 @@
+UTC : 2026-10-07T19:35:06.329331+00:00
+Dossier : /Users/altan/Desktop/tp-ia/tp2-soran-aaa
+$ python3 /private/tmp/tp2-demo-audit.py
+
+
+$ npm test
+npm error Missing script: "test"
+npm error
+npm error To see a list of scripts, run:
+npm error   npm run
+npm error A complete log of this run can be found in: /Users/altan/.npm/_logs/2026-10-07T19_35_06_667Z-debug-0.log
+CODE SORTIE : 1
+
+$ npm run build
+npm error Missing script: "build"
+npm error
+npm error To see a list of scripts, run:
+npm error   npm run
+npm error A complete log of this run can be found in: /Users/altan/.npm/_logs/2026-10-07T19_35_06_951Z-debug-0.log
+CODE SORTIE : 1
+
+$ ./node_modules/.bin/eslint --print-config src/lib/price.ts
+{
+  "linterOptions": {
+    "reportUnusedDisableDirectives": 1
+  },
+  "rules": {},
+  "plugins": [
+    "@"
+  ],
+  "language": "@/js",
+  "languageOptions": {
+    "sourceType": "module",
+    "ecmaVersion": 2026,
+    "parser": "typescript-eslint/parser@8.70.0",
+    "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+    }
+  }
+}
+CODE SORTIE : 0
+
+$ ./node_modules/.bin/tsc -p tsconfig.audit.json
+
+CODE SORTIE : 0
+
+SONDE TYPES APRES RETRAIT NOCHECK (COPIE INITIALE) :
+src/lib/price.ts(18,5): error TS2322: Type 'string' is not assignable to type 'number'.
+
+
+EVALUATION ISOLEE DES PERMISSIONS : last matching rule wins ; pas execution OpenCode
+architect primary {'read': 'allow', 'glob': 'allow', 'grep': 'allow', 'edit': 'allow', 'task': 'allow'}
+dev subagent {'read': 'allow', 'glob': 'allow', 'grep': 'allow', 'edit': 'allow', 'task': 'allow'}
+explorer subagent {'read': 'allow', 'glob': 'allow', 'grep': 'allow', 'edit': 'allow', 'task': 'deny'}
+finder subagent {'read': 'deny', 'glob': 'deny', 'grep': 'deny', 'edit': 'deny', 'task': 'deny'}
+planner primary {'read': 'allow', 'glob': 'allow', 'grep': 'allow', 'edit': 'deny', 'task': 'deny'}
+reviewer subagent {'read': 'allow', 'glob': 'allow', 'grep': 'allow', 'edit': 'allow', 'task': 'deny'}
+tester subagent {'read': 'allow', 'glob': 'allow', 'grep': 'allow', 'edit': 'deny', 'task': 'deny'}
+
+HOOK INFORMATIF ASSUME INFRA-231, DOUBLE NPM QUI ECHOUE :
+--- typecheck
+ECHEC volontaire pour sonde du hook
+--- lint
+ECHEC volontaire pour sonde du hook
+--- tests
+ECHEC volontaire pour sonde du hook
+--- au moins un check est rouge (voir plus haut)
+ CODE SORTIE : 0
+
+MCP DISTANTS, REQUETES HTTP SANS SECRET :
+
+$ curl --max-time 10 -sS -i https://mcp.sentry.dev/mcp
+HTTP/2 401 
+date: Wed, 07 Oct 2026 19:35:11 GMT
+content-length: 0
+cache-control: no-store
+www-authenticate: Bearer realm="OAuth", resource_metadata="https://mcp.sentry.dev/.well-known/oauth-protected-resource/mcp"
+pragma: no-cache
+report-to: {"group":"cf-nel","max_age":604800,"endpoints":[{"url":"https://a.nel.cloudflare.com/report/v4?s=YYpz7kOk0ilpGkgA24u1FBo%2FhTV5pW2xn326eXKPQYB9Evhrxih5gIqvXwuMjMR9FdHdjQjDaz37DAtvdhB29gVVo4%2F1vde1aIPi4hQaErsdK75RZn40nxBNU6lvOTpSmqEEwSzMRjVTw6jAmg%3D%3D"}]}
+nel: {"report_to":"cf-nel","success_fraction":0.0,"max_age":604800}
+server: cloudflare
+cf-ray: a46f58f85dbea9b8-CDG
+alt-svc: h3=":443"; ma=86400
+CODE SORTIE : 0
+
+$ curl --max-time 10 -sS -i https://mcp.internal.salles.lan/db
+curl: (6) Could not resolve host: mcp.internal.salles.lan
+CODE SORTIE : 6
+
+AUTHENTIFICATIONS REQUISES PRESENTES (VALEURS NON LUES) :
+{'SALLES_MCP_TOKEN': False, 'GITHUB_PERSONAL_ACCESS_TOKEN': False, 'NOTION_TOKEN': False, 'SLACK_BOT_TOKEN': False}
+
+MUTATIONS CIBLEES MESUREES :
+03-mutation-avant.json 1 / 6 tuees
+04-mutation-apres.json 6 / 6 tuees
+
+CODE SORTIE : 0

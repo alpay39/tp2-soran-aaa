@@ -1,0 +1,50 @@
+[
+  {
+    "method": "GET",
+    "url": "http://127.0.0.1:3109/health",
+    "status": 200,
+    "body": {
+      "ok": true
+    }
+  },
+  {
+    "method": "GET",
+    "url": "http://127.0.0.1:3109/rooms/salle-a/availability?date=2026-10-05",
+    "status": 200,
+    "body": {
+      "room": {
+        "id": "salle-a",
+        "name": "Salle A",
+        "capacity": 12,
+        "hourlyRate": 25
+      },
+      "date": "2026-10-05",
+      "slots": [
+        {
+          "startsAt": "2026-10-05T00:00:00Z",
+          "endsAt": "2026-10-05T09:00:00Z"
+        },
+        {
+          "startsAt": "2026-10-05T11:00:00Z",
+          "endsAt": "2026-10-06T00:00:00Z"
+        }
+      ]
+    }
+  },
+  {
+    "method": "GET",
+    "url": "http://127.0.0.1:3109/rooms/salle-a/availability?date=2026-02-30",
+    "status": 400,
+    "body": {
+      "error": "date attendue au format YYYY-MM-DD"
+    }
+  },
+  {
+    "method": "GET",
+    "url": "http://127.0.0.1:3109/rooms/inconnue/availability?date=2026-10-05",
+    "status": 404,
+    "body": {
+      "error": "salle inconnue"
+    }
+  }
+]

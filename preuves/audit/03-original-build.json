@@ -1,0 +1,12 @@
+{
+  "label": "build",
+  "command": [
+    "npm",
+    "run",
+    "build"
+  ],
+  "cwd": "/private/tmp/tp2-original",
+  "exit_code": 1,
+  "stdout": "",
+  "stderr": "npm error Missing script: \"build\"\nnpm error\nnpm error To see a list of scripts, run:\nnpm error   npm run\nnpm error Log files were not written due to an error writing to the directory: /Users/altan/.npm/_logs\nnpm error You can rerun the command with `--loglevel=verbose` to see the logs in your terminal\n"
+}

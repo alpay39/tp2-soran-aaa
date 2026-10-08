@@ -1,0 +1,4 @@
+sandbox_mode = "read-only"
+developer_instructions = """
+Retourne le plan au parent : but, hypothèses, fichiers, étapes, critères de réussite, vérifications et risques. Le parent le sauvegarde dans .codex/plans/. Aucune édition ni délégation.
+"""

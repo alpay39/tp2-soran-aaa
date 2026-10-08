@@ -1,0 +1,194 @@
+diff --git a/README.md b/README.md
+index 92376d9..1608cf4 100644
+--- a/README.md
++++ b/README.md
+@@ -14,6 +14,7 @@ npm start          # http://localhost:3000
+ | GET | `/health` | sonde de vie |
+ | GET | `/rooms` | catalogue des salles |
+ | GET | `/rooms/:id` | une salle et ses reservations |
++| GET | `/rooms/:id/availability?date=YYYY-MM-DD` | creneaux libres d'une salle |
+ | GET | `/bookings?roomId=` | les reservations |
+ | POST | `/bookings` | creer une reservation |
+ | DELETE | `/bookings/:id` | annuler une reservation |
+diff --git a/package-lock.json b/package-lock.json
+index ca9f960..d3e777a 100644
+--- a/package-lock.json
++++ b/package-lock.json
+@@ -687,9 +687,6 @@
+         "x64"
+       ],
+       "dev": true,
+-      "libc": [
+-        "glibc"
+-      ],
+       "license": "MIT",
+       "optional": true,
+       "os": [
+@@ -791,9 +788,6 @@
+         "arm"
+       ],
+       "dev": true,
+-      "libc": [
+-        "glibc"
+-      ],
+       "license": "MIT",
+       "optional": true,
+       "os": [
+@@ -808,9 +802,6 @@
+         "arm"
+       ],
+       "dev": true,
+-      "libc": [
+-        "musl"
+-      ],
+       "license": "MIT",
+       "optional": true,
+       "os": [
+@@ -825,9 +816,6 @@
+         "arm64"
+       ],
+       "dev": true,
+-      "libc": [
+-        "glibc"
+-      ],
+       "license": "MIT",
+       "optional": true,
+       "os": [
+@@ -842,9 +830,6 @@
+         "arm64"
+       ],
+       "dev": true,
+-      "libc": [
+-        "musl"
+-      ],
+       "license": "MIT",
+       "optional": true,
+       "os": [
+@@ -859,9 +844,6 @@
+         "loong64"
+       ],
+       "dev": true,
+-      "libc": [
+-        "glibc"
+-      ],
+       "license": "MIT",
+       "optional": true,
+       "os": [
+@@ -876,9 +858,6 @@
+         "loong64"
+       ],
+       "dev": true,
+-      "libc": [
+-        "musl"
+-      ],
+       "license": "MIT",
+       "optional": true,
+       "os": [
+@@ -893,9 +872,6 @@
+         "ppc64"
+       ],
+       "dev": true,
+-      "libc": [
+-        "glibc"
+-      ],
+       "license": "MIT",
+       "optional": true,
+       "os": [
+@@ -910,9 +886,6 @@
+         "ppc64"
+       ],
+       "dev": true,
+-      "libc": [
+-        "musl"
+-      ],
+       "license": "MIT",
+       "optional": true,
+       "os": [
+@@ -927,9 +900,6 @@
+         "riscv64"
+       ],
+       "dev": true,
+-      "libc": [
+-        "glibc"
+-      ],
+       "license": "MIT",
+       "optional": true,
+       "os": [
+@@ -944,9 +914,6 @@
+         "riscv64"
+       ],
+       "dev": true,
+-      "libc": [
+-        "musl"
+-      ],
+       "license": "MIT",
+       "optional": true,
+       "os": [
+@@ -961,9 +928,6 @@
+         "s390x"
+       ],
+       "dev": true,
+-      "libc": [
+-        "glibc"
+-      ],
+       "license": "MIT",
+       "optional": true,
+       "os": [
+@@ -978,9 +942,6 @@
+         "x64"
+       ],
+       "dev": true,
+-      "libc": [
+-        "glibc"
+-      ],
+       "license": "MIT",
+       "optional": true,
+       "os": [
+@@ -995,9 +956,6 @@
+         "x64"
+       ],
+       "dev": true,
+-      "libc": [
+-        "musl"
+-      ],
+       "license": "MIT",
+       "optional": true,
+       "os": [
+diff --git a/src/routes/rooms.ts b/src/routes/rooms.ts
+index 7b502b6..ecad804 100644
+--- a/src/routes/rooms.ts
++++ b/src/routes/rooms.ts
+@@ -1,5 +1,6 @@
+ import { Router } from "express";
+ import { rooms, findRoom, bookingsForRoom } from "../store.js";
++import availabilityForDay, { isIsoDay } from "../lib/availability.js";
+ 
+ export const roomsRouter = Router();
+ 
+@@ -7,6 +8,26 @@ roomsRouter.get("/", (_req, res) => {
+   res.json({ rooms });
+ });
+ 
++roomsRouter.get("/:id/availability", (req, res) => {
++  const room = findRoom(req.params.id);
++  if (!room) {
++    res.status(404).json({ error: "salle inconnue" });
++    return;
++  }
++
++  const date = req.query.date;
++  if (!isIsoDay(date)) {
++    res.status(400).json({ error: "date attendue au format YYYY-MM-DD" });
++    return;
++  }
++
++  res.json({
++    room,
++    date,
++    slots: availabilityForDay(bookingsForRoom(room.id), date)
++  });
++});
++
+ roomsRouter.get("/:id", (req, res) => {
+   const room = findRoom(req.params.id);
+   if (!room) {

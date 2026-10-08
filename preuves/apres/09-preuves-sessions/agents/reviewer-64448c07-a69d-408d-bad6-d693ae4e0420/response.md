@@ -1,0 +1,3 @@
+- [README.md:90](/private/tmp/tp2-apres-final09-soran-aaa/README.md:90) référence `DIAGNOSTIC.md`, mais ce fichier est absent du dossier livré. Scénario concret : un évaluateur suit le README pour consulter “l’ordre des étapes, les preuves, les métriques et les limites de l’adaptation” et tombe sur un fichier inexistant, donc le paquet livré est incohérent.
+
+VERDICT: BLOCKING

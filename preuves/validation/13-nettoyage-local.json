@@ -1,0 +1,10 @@
+{
+  "own_api_port": 3109,
+  "own_api_pid": 78180,
+  "observer_pid": 89186,
+  "signal_sent": "SIGTERM",
+  "experiments_finished": true,
+  "unrelated_services_not_touched": true,
+  "commit_created": false,
+  "push_performed": false
+}

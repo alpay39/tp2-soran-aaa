@@ -1,0 +1,12 @@
+{
+  "copied_existing_files": [
+    ".github/workflows/ci.yml",
+    ".gitignore",
+    ".husky/pre-commit"
+  ],
+  "omitted_deliberately": [
+    ".env"
+  ],
+  "reason": "La copie de comparaison utilise les variables explicites du processus et le store en mémoire ; aucune clé ni fichier .env modifié.",
+  "feature_code_modified": false
+}

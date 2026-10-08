@@ -1,0 +1,24 @@
+
+> salles-api@0.4.2 start
+> tsx src/server.ts
+
+node:net:1881
+      const error = new UVExceptionWithHostPort(rval, 'listen', address, port);
+                    ^
+
+Error: listen EPERM: operation not permitted /var/folders/zs/6wm2d3k16bj1c7xhn1jkqv080000gp/T/tsx-502/30904.pipe
+    at Server.setupListenHandle [as _listen2] (node:net:1881:21)
+    at listenInCluster (node:net:1960:12)
+    at Server.listen (node:net:2079:5)
+    at file:///Users/altan/Desktop/tp-ia/tp2-soran-aaa/node_modules/tsx/dist/cli.mjs:53:31472
+    at new Promise (<anonymous>)
+    at createIpcServer (file:///Users/altan/Desktop/tp-ia/tp2-soran-aaa/node_modules/tsx/dist/cli.mjs:53:31450)
+    at async file:///Users/altan/Desktop/tp-ia/tp2-soran-aaa/node_modules/tsx/dist/cli.mjs:55:542 {
+  code: 'EPERM',
+  errno: -1,
+  syscall: 'listen',
+  address: '/var/folders/zs/6wm2d3k16bj1c7xhn1jkqv080000gp/T/tsx-502/30904.pipe',
+  port: -1
+}
+
+Node.js v22.8.0

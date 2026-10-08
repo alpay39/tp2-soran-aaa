@@ -1,0 +1,13 @@
+{
+  "command": [
+    "curl",
+    "--max-time",
+    "10",
+    "-sS",
+    "-i",
+    "https://mcp.internal.salles.lan/db"
+  ],
+  "exit_code": 6,
+  "stdout": "",
+  "stderr": "curl: (6) Could not resolve host: mcp.internal.salles.lan\n"
+}

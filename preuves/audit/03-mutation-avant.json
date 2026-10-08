@@ -1,0 +1,61 @@
+{
+  "method": "six mutations ciblees dans copies temporaires ; suite reelle vitest, aucun changement du depot",
+  "total": 6,
+  "killed": 1,
+  "results": [
+    {
+      "mutant": "overlap-toujours-faux",
+      "file": "src/lib/overlap.ts",
+      "before": "return a1 <= b2 && b1 <= a2;",
+      "after": "return false;",
+      "verdict": "TUE",
+      "exit_code": 1,
+      "output": "\n RUN  v2.1.9 /private/var/folders/zs/6wm2d3k16bj1c7xhn1jkqv080000gp/T/tp2-mutant-23kuhbs1\n\n ✓ test/store.spec.ts (3 tests) 5ms\n ❯ test/overlap.spec.ts (6 tests | 1 failed | 4 skipped) 14ms\n   × overlaps > detecte deux creneaux qui se recouvrent 11ms\n     → expected false to be true // Object.is equality\n\n Test Files  1 failed | 1 passed (2)\n      Tests  1 failed | 4 passed | 4 skipped (9)\n   Start at  20:53:09\n   Duration  558ms (transform 76ms, setup 0ms, collect 88ms, tests 19ms, environment 1ms, prepare 201ms)\n\n⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯\n\n FAIL  test/overlap.spec.ts > overlaps > detecte deux creneaux qui se recouvrent\nAssertionError: expected false to be true // Object.is equality\n\n- Expected\n+ Received\n\n- true\n+ false\n\n ❯ test/overlap.spec.ts:13:7\n     11|         \"2026-10-05T12:00:00Z\"\n     12|       )\n     13|     ).toBe(true);\n       |       ^\n     14|   });\n     15| \n\n⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯\n\n"
+    },
+    {
+      "mutant": "prix-base-zero",
+      "file": "src/lib/price.ts",
+      "before": "const base = room.hourlyRate * hoursBetween(startsAt, endsAt);",
+      "after": "const base = 0;",
+      "verdict": "SURVIT",
+      "exit_code": 0,
+      "output": "\n RUN  v2.1.9 /private/var/folders/zs/6wm2d3k16bj1c7xhn1jkqv080000gp/T/tp2-mutant-0lxcbmk_\n\n ✓ test/overlap.spec.ts (6 tests | 4 skipped) 4ms\n ✓ test/store.spec.ts (3 tests) 6ms\n\n Test Files  2 passed (2)\n      Tests  5 passed | 4 skipped (9)\n   Start at  20:53:10\n   Duration  536ms (transform 78ms, setup 0ms, collect 82ms, tests 10ms, environment 1ms, prepare 211ms)\n\n"
+    },
+    {
+      "mutant": "prix-sans-majoration",
+      "file": "src/lib/price.ts",
+      "before": "return base + WEEKEND_SURCHARGE;",
+      "after": "return base;",
+      "verdict": "SURVIT",
+      "exit_code": 0,
+      "output": "\n RUN  v2.1.9 /private/var/folders/zs/6wm2d3k16bj1c7xhn1jkqv080000gp/T/tp2-mutant-6i2jnza_\n\n ✓ test/overlap.spec.ts (6 tests | 4 skipped) 5ms\n ✓ test/store.spec.ts (3 tests) 6ms\n\n Test Files  2 passed (2)\n      Tests  5 passed | 4 skipped (9)\n   Start at  20:53:11\n   Duration  558ms (transform 77ms, setup 0ms, collect 83ms, tests 10ms, environment 1ms, prepare 227ms)\n\n"
+    },
+    {
+      "mutant": "store-premiere-salle",
+      "file": "src/store.ts",
+      "before": "return rooms.find((r) => r.id === id);",
+      "after": "return rooms[0];",
+      "verdict": "SURVIT",
+      "exit_code": 0,
+      "output": "\n RUN  v2.1.9 /private/var/folders/zs/6wm2d3k16bj1c7xhn1jkqv080000gp/T/tp2-mutant-tqmsw1u5\n\n ✓ test/overlap.spec.ts (6 tests | 4 skipped) 5ms\n ✓ test/store.spec.ts (3 tests) 6ms\n\n Test Files  2 passed (2)\n      Tests  5 passed | 4 skipped (9)\n   Start at  20:53:12\n   Duration  503ms (transform 55ms, setup 0ms, collect 69ms, tests 10ms, environment 0ms, prepare 189ms)\n\n"
+    },
+    {
+      "mutant": "store-reservations-vides",
+      "file": "src/store.ts",
+      "before": "return bookings.filter((b) => b.roomId === roomId);",
+      "after": "return [];",
+      "verdict": "SURVIT",
+      "exit_code": 0,
+      "output": "\n RUN  v2.1.9 /private/var/folders/zs/6wm2d3k16bj1c7xhn1jkqv080000gp/T/tp2-mutant-o1zkq_k8\n\n ✓ test/overlap.spec.ts (6 tests | 4 skipped) 4ms\n ✓ test/store.spec.ts (3 tests) 5ms\n\n Test Files  2 passed (2)\n      Tests  5 passed | 4 skipped (9)\n   Start at  20:53:13\n   Duration  557ms (transform 72ms, setup 0ms, collect 75ms, tests 9ms, environment 0ms, prepare 183ms)\n\n"
+    },
+    {
+      "mutant": "validation-zero-accepte",
+      "file": "src/lib/validate.ts",
+      "before": " || value <= 0",
+      "after": "",
+      "verdict": "SURVIT",
+      "exit_code": 0,
+      "output": "\n RUN  v2.1.9 /private/var/folders/zs/6wm2d3k16bj1c7xhn1jkqv080000gp/T/tp2-mutant-1zea4swl\n\n ✓ test/overlap.spec.ts (6 tests | 4 skipped) 4ms\n ✓ test/store.spec.ts (3 tests) 5ms\n\n Test Files  2 passed (2)\n      Tests  5 passed | 4 skipped (9)\n   Start at  20:53:14\n   Duration  506ms (transform 75ms, setup 0ms, collect 79ms, tests 10ms, environment 0ms, prepare 170ms)\n\n"
+    }
+  ]
+}

@@ -1,0 +1,6 @@
+{
+  "legacy_hook": "Ancien hook Husky converti en relais du hook .githooks actif ; aucune dépendance ajoutée.",
+  "dependency_copy": "Dépendances existantes copiées dans la copie de comparaison ; ancien lien conservé séparément, aucune installation ni suppression.",
+  "ignore": "node_modules couvre dossier et lien.",
+  "feature_code_modified": false
+}

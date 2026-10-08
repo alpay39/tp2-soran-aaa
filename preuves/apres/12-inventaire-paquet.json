@@ -1,0 +1,7 @@
+{
+  "missing_tracked_files": [
+    ".env"
+  ],
+  "node_modules_symlink": false,
+  "excluded_env_deliberately": true
+}

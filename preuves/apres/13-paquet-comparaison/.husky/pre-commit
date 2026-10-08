@@ -1,0 +1,3 @@
+#!/bin/sh
+# Compatibilité avec les anciens checkouts, sans dépendance Husky.
+exec "$(git rev-parse --show-toplevel)/.githooks/pre-commit"

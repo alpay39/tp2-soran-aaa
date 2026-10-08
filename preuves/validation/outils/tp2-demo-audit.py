@@ -1,0 +1,25 @@
+import json,subprocess,os
+from pathlib import Path
+root=Path('/Users/altan/Desktop/tp-ia/tp2-soran-aaa');old=Path('/private/tmp/tp2-original')
+def run(args,cwd=old):
+ print('\n$ '+' '.join(args),flush=True)
+ p=subprocess.run(args,cwd=cwd,capture_output=True,text=True)
+ print((p.stdout+p.stderr).strip(),flush=True);print('CODE SORTIE :',p.returncode,flush=True)
+run(['npm','test']);run(['npm','run','build'])
+run(['./node_modules/.bin/eslint','--print-config','src/lib/price.ts'])
+run(['./node_modules/.bin/tsc','-p','tsconfig.audit.json'])
+print('\nSONDE TYPES APRES RETRAIT NOCHECK (COPIE INITIALE) :',flush=True)
+print(json.loads((root/'captures/03-types-sans-nocheck.json').read_text())['stdout'],flush=True)
+print('\nEVALUATION ISOLEE DES PERMISSIONS : last matching rule wins ; pas execution OpenCode',flush=True)
+j=json.loads((root/'captures/03-permissions-modele.json').read_text())
+for a in j['agents']:print(a['agent'],a['mode'],a['permissions'],flush=True)
+print('\nHOOK INFORMATIF ASSUME INFRA-231, DOUBLE NPM QUI ECHOUE :',flush=True)
+j=json.loads((root/'captures/03-hook-informatif.json').read_text());print(j['stdout'],'CODE SORTIE :',j['exit_code'],flush=True)
+print('\nMCP DISTANTS, REQUETES HTTP SANS SECRET :',flush=True)
+run(['curl','--max-time','10','-sS','-i','https://mcp.sentry.dev/mcp'],root)
+run(['curl','--max-time','10','-sS','-i','https://mcp.internal.salles.lan/db'],root)
+print('\nAUTHENTIFICATIONS REQUISES PRESENTES (VALEURS NON LUES) :',flush=True)
+print({k:bool(os.environ.get(k)) for k in ['SALLES_MCP_TOKEN','GITHUB_PERSONAL_ACCESS_TOKEN','NOTION_TOKEN','SLACK_BOT_TOKEN']},flush=True)
+print('\nMUTATIONS CIBLEES MESUREES :',flush=True)
+for file in ['03-mutation-avant.json','04-mutation-apres.json']:
+ j=json.loads((root/'captures'/file).read_text());print(file, j['killed'],'/',j['total'],'tuees',flush=True)

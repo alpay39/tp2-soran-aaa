@@ -1,0 +1,26 @@
+{
+  "captures_count": 15,
+  "technical_evidence_files_moved": 181,
+  "original_index_archived_unchanged": true,
+  "raw_files_and_images_unchanged": true,
+  "functional_files_unchanged": 58,
+  "temporary_removed": [
+    "REPRISE_TP2.md"
+  ],
+  "generated_excluded": [
+    "coverage/",
+    "dist/",
+    "node_modules/"
+  ],
+  "generated_original_tracked_files": [],
+  "verify_exit": 0,
+  "coverage_exit": 0,
+  "diff_check_exit": 0,
+  "markdown_missing": [],
+  "local_links_valid": 126,
+  "diagnostic_has_symptom_cause_brique_repair_matrix": true,
+  "before_after_screenshots_present": true,
+  "head": "ab57521d04c1ed026be1440bc4e4d58c61788a2a",
+  "commit_created": false,
+  "push_performed": false
+}

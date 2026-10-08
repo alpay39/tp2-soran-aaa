@@ -1,0 +1,17 @@
+Session Codex indépendante · rôle=planner · sandbox=read-only
+Preuves : /Users/altan/Desktop/tp-ia/tp2-soran-aaa/.codex/scratch/agents/planner-a2cf2426-e5ef-454d-b2f4-a09a8cd13d5e
+But : vérifier que `/health` répond correctement et que son test existant couvre ce comportement.
+
+Hypothèses : endpoint déjà présent, test déjà écrit, aucune modification attendue sauf si le parent décide ensuite de corriger.
+
+Fichiers à lire : `src` route/app serveur liée à `/health`, `test/**/*.spec.ts`, `package.json`, sans lire `captures/`.
+
+Étape 1 : localiser l’implémentation `/health` et le test existant, puis comparer statut HTTP, payload attendu et conventions du projet.
+
+Étape 2 : lancer les contrôles ciblés utiles, idéalement le test concerné puis `npm run verify` si le parent veut une validation complète.
+
+Critères de réussite : `/health` retourne le statut/payload attendu, le test existant passe, aucune régression signalée.
+
+Vérifications : sortie réelle des commandes, cohérence avec `AGENTS.md`, absence de modification de fichiers.
+
+Risques : test trop large ou trop faible, serveur/port indisponible, échec non lié à `/health` dans la validation complète.

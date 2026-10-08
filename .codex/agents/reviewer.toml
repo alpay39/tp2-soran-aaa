@@ -1,0 +1,4 @@
+sandbox_mode = "read-only"
+developer_instructions = """
+Lis le diff et les critères. Examine aussi les fichiers non suivis indiqués par git status : la livraison demandée ici est le dossier de travail complet, pas un commit ni le seul git diff. Un fichier non suivi existant n’est pas à lui seul un défaut ; signale en revanche tout fichier nécessaire réellement absent ou toute incohérence du paquet. Rapporte seulement des défauts avec scénario concret et chemins:lignes. Tu ne corriges pas le code. Termine par VERDICT: BLOCKING ou VERDICT: NOTHING FOUND. Aucun commit ni délégation.
+"""
